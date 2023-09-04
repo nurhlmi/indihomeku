@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, Container, Dialog, Fab, Grid, Link, Typography } from "@mui/material";
 import { Email, Phone, WhatsApp } from "@mui/icons-material";
-import { phone, text } from "../mocks/mock";
+import { phone, phone_alt, email, text } from "../mocks/mock";
 
 export default function Footer() {
    const [dialog, setDialog] = useState({
@@ -17,7 +17,7 @@ export default function Footer() {
 
    return (
       <>
-         <Box bgcolor="#db4540" mt={10}>
+         <Box bgcolor="#ea0d2a" mt={10}>
             <Container>
                <Grid container alignItems="center" spacing={5} pt={5} pb={10}>
                   <Grid item xs={12} md={6} sx={{ textAlign: { xs: "center", md: "left" } }}>
@@ -36,7 +36,7 @@ export default function Footer() {
                         target="_blank"
                         rel="noreferrer"
                         underline="none"
-                        sx={{ display: "inline-block", background: "#fff", color: "#db4540", borderRadius: 20, px: 3, py: 1 }}
+                        sx={{ display: "inline-block", background: "#fff", color: "#ea0d2a", borderRadius: 20, px: 3, py: 1 }}
                      >
                         <Typography fontWeight={500}>Daftar Sekarang</Typography>
                      </Box>
@@ -55,8 +55,8 @@ export default function Footer() {
             </Container>
          </Box>
          <Container align="center">
-            <Box component="img" src="/assets/daftar-sekarang.jpeg" alt="Daftar Sekarang" sx={{ width: { xs: "100%", md: "500px" } }} />
-            <Grid container spacing={{ xs: 5, sm: 0 }} mb={10}>
+            {/* <Box component="img" src="/assets/daftar-sekarang.jpeg" alt="Daftar Sekarang" sx={{ width: { xs: "100%", md: "500px" } }} /> */}
+            <Grid container spacing={{ xs: 5, sm: 0 }} py={10}>
                <Grid item xs={12} sm={6}>
                   <Box display="inline-block" component={Link} href={`tel:+${phone}`} underline="none">
                      <Fab color="error">
@@ -66,7 +66,7 @@ export default function Footer() {
                         Telepon
                      </Typography>
                      <Typography variant="h6" color="error" fontWeight="bold">
-                        0813-9924-9959
+                        {phone_alt}
                      </Typography>
                   </Box>
                </Grid>
@@ -86,12 +86,12 @@ export default function Footer() {
                         WhatsApp
                      </Typography>
                      <Typography variant="h6" color="error" fontWeight="bold">
-                        0813-9924-9959
+                        {phone_alt}
                      </Typography>
                   </Box>
                </Grid>
                <Grid item xs={12}>
-                  <Box display="inline-block" component={Link} href="mailto:layanan@daftar-indihome.web.id" underline="none">
+                  <Box display="inline-block" component={Link} href={`mailto:${email}`} underline="none">
                      <Fab color="error">
                         <Email fontSize="large" />
                      </Fab>
@@ -99,13 +99,13 @@ export default function Footer() {
                         Email
                      </Typography>
                      <Typography variant="h6" color="error" fontWeight="bold">
-                        layanan@daftar-indihome.web.id
+                        {email}
                      </Typography>
                   </Box>
                </Grid>
             </Grid>
          </Container>
-         <Box bgcolor="#db4540" color="#fff" align="center" p={2}>
+         <Box bgcolor="#ea0d2a" color="#fff" align="center" p={2}>
             <Typography variant="body2">&copy; {new Date().getFullYear()} Layanan Daftar & Pasang Indihome</Typography>
          </Box>
          <Dialog open={dialog.video} onClose={() => handleDialog("video")} maxWidth="md" fullWidth>

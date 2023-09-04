@@ -7,8 +7,11 @@ export default function App() {
       palette: {
          primary: {
             light: "#63ccff",
-            main: "#005267", //primary
-            dark: "#005267", //hover
+            main: "#005267",
+            dark: "#005267",
+         },
+         error: {
+            main: "#ea0d2a",
          },
       },
       typography: {

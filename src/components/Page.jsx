@@ -14,7 +14,7 @@ const Page = forwardRef(({ children, title = "", meta, ...other }, ref) => (
       <ScrollToTop />
 
       <Helmet>
-         <title>{`${title} - Indihome`}</title>
+         <title>{`${title} - Indihome by Telkomsel`}</title>
          {meta}
       </Helmet>
 

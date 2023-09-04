@@ -3,7 +3,7 @@ import Page from "../components/Page";
 
 export default function Package() {
    return (
-      <Page title="Semua Paket">
+      <Page title="Paket Internet Cepat Unlimited IndiHome untuk Wifi Rumah dan TV Berlangganan">
          <Container align="center">
             <Typography variant="h4" fontWeight="bold" mt={5} color="error" gutterBottom>
                PAKET INDIHOME

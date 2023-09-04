@@ -5,7 +5,7 @@ import { phone } from "../mocks/mock";
 
 export default function PackageCard(props) {
    const { value, title, description, price } = { ...props };
-   const text = encodeURIComponent(`Halo Admin.. Saya ingin daftar ${title} (${value}Mbps) (${description})`);
+   const text = encodeURIComponent(`Halo Admin.. Saya ingin berlangganan ${title} (${value}Mbps) (${description})`);
    const chart = {
       series: [value],
       options: {
@@ -14,7 +14,7 @@ export default function PackageCard(props) {
             type: "radialBar",
          },
          fill: {
-            colors: ["#db4540"],
+            colors: ["#ea0d2a"],
          },
          plotOptions: {
             radialBar: {
@@ -40,7 +40,7 @@ export default function PackageCard(props) {
                      formatter: function (val) {
                         return `${parseInt(val)}`;
                      },
-                     color: "#db4540",
+                     color: "#ea0d2a",
                      fontSize: "50px",
                      show: true,
                   },
@@ -76,8 +76,8 @@ export default function PackageCard(props) {
                {title}
             </Typography>
             <Typography height={75}>({description})</Typography>
-            <Typography fontWeight="bold" color="text.secondary" mb={2}>
-               Rp. <span style={{ fontSize: 27 }}>{new Intl.NumberFormat("id-ID").format(price)}</span> /Bulan
+            <Typography fontWeight="bold" mb={2}>
+               Rp <span style={{ fontSize: 27 }}>{new Intl.NumberFormat("id-ID").format(price)}</span> /Bulan
             </Typography>
             <Button
                size="large"

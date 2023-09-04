@@ -6,9 +6,9 @@ import PackageCard from "../components/PackageCard";
 
 export default function Home() {
    return (
-      <Page title="Daftar & Pasang">
+      <Page title="Provider Internet Rumah dan Cepat">
          <Container align="center">
-            <Box component="img" src="/assets/indihome-promo.jpeg" alt="Indihome Promo" sx={{ width: { xs: "100%", md: "700px" } }} />
+            <Box component="img" src="/assets/banners/KVWEB_Dsktop1650x686_D.jpeg" alt="Indihome Promo" sx={{ width: { xs: "100%", md: "850px" } }} />
             <Typography variant="h4" fontWeight="bold" color="error" mt={2}>
                Kini Daftar Indihome Menjadi Lebih Cepat & Mudah!
             </Typography>
@@ -49,7 +49,7 @@ export default function Home() {
                   <PackageCard value={30} title="Paket IndiHome 1P" description="Internet Only" price={280000} />
                </Grid>
                <Grid item xs={12} sm={6} md={4}>
-                  <PackageCard value={30} title="Paket IndiHome 1P" description="Internet Only + Disney Hotstar" price={295000} />
+                  <PackageCard value={30} title="Paket IndiHome 1P" description="Internet + Disney Hotstar" price={295000} />
                </Grid>
                <Grid item xs={12} sm={6} md={4}>
                   <PackageCard value={40} title="Paket IndiHome 1P" description="Internet Only" price={310000} />
