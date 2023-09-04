@@ -54,58 +54,60 @@ export default function Footer() {
                </Grid>
             </Container>
          </Box>
-         <Container align="center">
-            {/* <Box component="img" src="/assets/daftar-sekarang.jpeg" alt="Daftar Sekarang" sx={{ width: { xs: "100%", md: "500px" } }} /> */}
-            <Grid container spacing={{ xs: 5, sm: 0 }} py={10}>
-               <Grid item xs={12} sm={6}>
-                  <Box display="inline-block" component={Link} href={`tel:+${phone}`} underline="none">
-                     <Fab color="error">
-                        <Phone fontSize="large" />
-                     </Fab>
-                     <Typography color="error" pt={1}>
-                        Telepon
-                     </Typography>
-                     <Typography variant="h6" color="error" fontWeight="bold">
-                        {phone_alt}
-                     </Typography>
-                  </Box>
+         <Box bgcolor="#333" color="#fff" align="center">
+            <Container align="center">
+               <Box component="img" src="/assets/telkomsel.png" alt="Telkomsel" sx={{ width: { xs: "60%", md: "200px" }, py: 5 }} />
+               <Grid container spacing={{ xs: 5, sm: 0 }} pb={10}>
+                  <Grid item xs={12} md={4}>
+                     <Box display="inline-block" component={Link} href={`tel:+${phone}`} underline="none">
+                        <Fab color="error">
+                           <Phone fontSize="large" />
+                        </Fab>
+                        <Typography color="white" pt={1}>
+                           Telepon
+                        </Typography>
+                        <Typography variant="h6" color="white" fontWeight="bold">
+                           {phone_alt}
+                        </Typography>
+                     </Box>
+                  </Grid>
+                  <Grid item xs={12} md={4}>
+                     <Box display="inline-block" component={Link} href={`mailto:${email}`} underline="none">
+                        <Fab color="error">
+                           <Email fontSize="large" />
+                        </Fab>
+                        <Typography color="white" pt={1}>
+                           Email
+                        </Typography>
+                        <Typography variant="h6" color="white" fontWeight="bold">
+                           {email}
+                        </Typography>
+                     </Box>
+                  </Grid>
+                  <Grid item xs={12} md={4}>
+                     <Box
+                        display="inline-block"
+                        component={Link}
+                        href={`https://wa.me/?phone=${phone}&text=${text}`}
+                        underline="none"
+                        target="_blank"
+                        rel="noreferrer"
+                     >
+                        <Fab color="error">
+                           <WhatsApp fontSize="large" />
+                        </Fab>
+                        <Typography color="white" pt={1}>
+                           WhatsApp
+                        </Typography>
+                        <Typography variant="h6" color="white" fontWeight="bold">
+                           {phone_alt}
+                        </Typography>
+                     </Box>
+                  </Grid>
                </Grid>
-               <Grid item xs={12} sm={6}>
-                  <Box
-                     display="inline-block"
-                     component={Link}
-                     href={`https://wa.me/?phone=${phone}&text=${text}`}
-                     underline="none"
-                     target="_blank"
-                     rel="noreferrer"
-                  >
-                     <Fab color="error">
-                        <WhatsApp fontSize="large" />
-                     </Fab>
-                     <Typography color="error" pt={1}>
-                        WhatsApp
-                     </Typography>
-                     <Typography variant="h6" color="error" fontWeight="bold">
-                        {phone_alt}
-                     </Typography>
-                  </Box>
-               </Grid>
-               <Grid item xs={12}>
-                  <Box display="inline-block" component={Link} href={`mailto:${email}`} underline="none">
-                     <Fab color="error">
-                        <Email fontSize="large" />
-                     </Fab>
-                     <Typography color="error" pt={1}>
-                        Email
-                     </Typography>
-                     <Typography variant="h6" color="error" fontWeight="bold">
-                        {email}
-                     </Typography>
-                  </Box>
-               </Grid>
-            </Grid>
-         </Container>
-         <Box bgcolor="#ea0d2a" color="#fff" align="center" p={2}>
+            </Container>
+         </Box>
+         <Box bgcolor="#191919" color="#fff" align="center" p={2}>
             <Typography variant="body2">&copy; {new Date().getFullYear()} Layanan Daftar & Pasang Indihome</Typography>
          </Box>
          <Dialog open={dialog.video} onClose={() => handleDialog("video")} maxWidth="md" fullWidth>
