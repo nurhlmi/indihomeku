@@ -1,13 +1,17 @@
-import { Box, Button, Card, CardContent, Link, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, Link, Stack, Typography } from "@mui/material";
 import { WhatsApp } from "@mui/icons-material";
 import ReactApexChart from "react-apexcharts";
 import { phone } from "../mocks/mock";
 
 export default function PackageCard(props) {
-   const { value, title, description, price } = { ...props };
-   const text = encodeURIComponent(`Halo Admin.. Saya ingin berlangganan ${title} (${value}Mbps) (${description})`);
+   const { title, value } = { ...props };
+   const text = encodeURIComponent(
+      `Halo admin, saya mau tanya untuk ${title} kecepatan ${value.speed} Mbps dengan biaya ${new Intl.NumberFormat("id-ID").format(
+         value.promo > 0 ? value.promo.toString().substr(0, 3) : value.price.toString().substr(0, 3)
+      )}rb/bulan`
+   );
    const chart = {
-      series: [value],
+      series: [value.speed],
       options: {
          chart: {
             height: 350,
@@ -54,7 +58,8 @@ export default function PackageCard(props) {
       },
    };
    return (
-      <Card sx={{ boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.5)" }}>
+      <Card sx={{ boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.5)", height: "100%", position: "relative" }}>
+         {value.promo > 0 && <img src="/assets/promo.png" width={100} style={{ position: "absolute", right: -5, top: -5 }} />}
          <CardContent align="center" sx={{ px: 3 }}>
             <Box position="relative">
                <ReactApexChart type="radialBar" options={chart.options} series={chart.series} />
@@ -75,10 +80,19 @@ export default function PackageCard(props) {
             <Typography variant="h6" fontWeight="bold">
                {title}
             </Typography>
-            <Typography height={75}>({description})</Typography>
-            <Typography fontWeight="bold" mb={2}>
-               Rp <span style={{ fontSize: 27 }}>{new Intl.NumberFormat("id-ID").format(price)}</span> /Bulan
-            </Typography>
+            <Typography height={50}>{value.description !== "" && `(${value.description})`}</Typography>
+            <Stack direction="row" alignItems="flex-end" justifyContent="center" height={100} width="100%">
+               <Stack justifyContent="center" mb={2}>
+                  {value.promo > 0 && (
+                     <Typography color="text.secondary">
+                        <s>Rp {new Intl.NumberFormat("id-ID").format(value.price)} /bulan</s>
+                     </Typography>
+                  )}
+                  <Typography fontWeight="bold">
+                     Rp <span style={{ fontSize: 27 }}>{new Intl.NumberFormat("id-ID").format(value.promo > 0 ? value.promo : value.price)}</span> /bulan
+                  </Typography>
+               </Stack>
+            </Stack>
             <Button
                size="large"
                color="error"

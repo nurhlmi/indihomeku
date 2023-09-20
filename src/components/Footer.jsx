@@ -44,8 +44,8 @@ export default function Footer() {
                   <Grid item xs={12} md={6}>
                      <Box
                         component="img"
-                        src="/assets/thumbnail.jpeg"
-                        alt="Thumbnail"
+                        src="/assets/play.jpeg"
+                        alt="Play Video"
                         width="100%"
                         style={{ borderRadius: 10, cursor: "pointer" }}
                         onClick={() => handleDialog("video")}

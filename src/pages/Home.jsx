@@ -1,14 +1,36 @@
-import { Box, Button, Container, Grid, Link, Typography } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from "react";
+import { Box, Button, CircularProgress, Container, Grid, Link, Stack, Typography } from "@mui/material";
 import { phone, text } from "../mocks/mock";
-import Page from "../components/Page";
+import { Link as RouterLink } from "react-router-dom";
 import PackageCard from "../components/PackageCard";
+import packages from "../mocks/packages.json";
+import Page from "../components/Page";
+import axios from "../variable/axios";
 
 export default function Home() {
+   const [data, setData] = useState();
+
+   const getData = async () => {
+      const res = await axios.get(`data.json`);
+      return res.data.data;
+   };
+
+   useEffect(() => {
+      Promise.all([getData()])
+         .then((res) => {
+            // console.log(data);
+            setData(res);
+         })
+         .catch(() => {
+            setData(packages);
+         });
+   }, []);
+
    return (
       <Page title="Provider Internet Rumah dan Cepat">
          <Container align="center">
-            <Box component="img" src="/assets/banners/KVWEB_Dsktop1650x686_D.jpeg" alt="Indihome Promo" sx={{ width: { xs: "100%", md: "850px" } }} />
+            <Box component="img" src="/assets/banners/FLYER_JITU1_2-SF Area 2_page-0001.jpg" alt="Indihome Promo" sx={{ width: { xs: "100%", sm: "550px" } }} />
             <Typography variant="h4" fontWeight="bold" color="error" mt={2}>
                Kini Daftar Indihome Menjadi Lebih Cepat & Mudah!
             </Typography>
@@ -36,73 +58,29 @@ export default function Home() {
                Nikmati layanan internet sepuasnya dari <b>Telkom Indihome</b> untuk wilayah <b>Jabodetabek</b>.<br />
                Solusi tepat untuk kerja dan belajar dari rumah.
             </Typography>
-            <Typography variant="h5" fontWeight="bold" pt={10} id="paket">
+            <Typography variant="h4" fontWeight="bold" pt={10} id="paket">
                Pilihan Paket Indihome
             </Typography>
-            <Grid container spacing={3} pt={5}>
-               <Grid item xs={12}>
-                  <Typography variant="h6" fontWeight="bold">
-                     1P Internet Only
-                  </Typography>
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <PackageCard value={30} title="Paket IndiHome 1P" description="Internet Only" price={280000} />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <PackageCard value={30} title="Paket IndiHome 1P" description="Internet + Disney Hotstar" price={295000} />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <PackageCard value={40} title="Paket IndiHome 1P" description="Internet Only" price={310000} />
-               </Grid>
-            </Grid>
-            <Grid container spacing={3} pt={10}>
-               <Grid item xs={12}>
-                  <Typography variant="h6" fontWeight="bold">
-                     2P Internet + Phone
-                  </Typography>
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <PackageCard value={30} title="Paket IndiHome 2P" description="Internet + Phone" price={315000} />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <PackageCard value={50} title="Paket IndiHome 2P" description="Internet + Phone" price={445000} />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <PackageCard value={100} title="Paket IndiHome 2P" description="Internet + Phone" price={795000} />
-               </Grid>
-            </Grid>
-            <Grid container spacing={3} pt={10}>
-               <Grid item xs={12}>
-                  <Typography variant="h6" fontWeight="bold">
-                     2P Internet + TV
-                  </Typography>
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <PackageCard value={30} title="Paket IndiHome 2P" description="Internet + TV" price={370000} />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <PackageCard value={50} title="Paket IndiHome 2P" description="Internet + TV" price={595000} />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <PackageCard value={100} title="Paket IndiHome 2P" description="Internet + TV" price={945000} />
-               </Grid>
-            </Grid>
-            <Grid container spacing={3} pt={10}>
-               <Grid item xs={12}>
-                  <Typography variant="h6" fontWeight="bold">
-                     3P Internet + TV + Phone
-                  </Typography>
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <PackageCard value={30} title="Paket IndiHome 3P" description="Internet + TV + Phone" price={385000} />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <PackageCard value={50} title="Paket IndiHome 3P" description="Internet + TV + Phone" price={615000} />
-               </Grid>
-               <Grid item xs={12} sm={6} md={4}>
-                  <PackageCard value={100} title="Paket IndiHome 3P" description="Internet + TV + Phone" price={965000} />
-               </Grid>
-            </Grid>
+            {data ? (
+               data.data.map((value, index) => (
+                  <Grid container spacing={3} key={index} mt={5}>
+                     <Grid item xs={12}>
+                        <Typography variant="h5" fontWeight="bold">
+                           {value.name}
+                        </Typography>
+                     </Grid>
+                     {value.packages.map((row, key) => (
+                        <Grid item xs={12} sm={6} md={4} key={key}>
+                           <PackageCard title={value.name} value={row} />
+                        </Grid>
+                     ))}
+                  </Grid>
+               ))
+            ) : (
+               <Stack direction="row" alignItems="center" justifyContent="center" py={10}>
+                  <CircularProgress color="error" />
+               </Stack>
+            )}
             <Button size="large" variant="contained" color="error" component={RouterLink} to="semua-paket" sx={{ my: 5 }}>
                Lihat Semua Paket
             </Button>

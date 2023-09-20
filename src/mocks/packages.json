@@ -1,0 +1,126 @@
+{
+   "data": [
+      {
+         "name": "Paket JITU 1 1P Internet",
+         "packages": [
+            {
+               "speed": 30,
+               "description": "",
+               "price": 280000,
+               "promo": 0
+            },
+            {
+               "speed": 30,
+               "description": "Disney Hotstar",
+               "price": 295000,
+               "promo": 0
+            },
+            {
+               "speed": 50,
+               "description": "",
+               "price": 350000,
+               "promo": 299000
+            },
+            {
+               "speed": 100,
+               "description": "IndiHomeTV + Disney Hotstar + MAXstream",
+               "price": 425000,
+               "promo": 375000
+            }
+         ]
+      },
+      {
+         "name": "Paket JITU 1 2P Internet + Phone",
+         "packages": [
+            {
+               "speed": 30,
+               "description": "Disney Hotstar",
+               "price": 300000,
+               "promo": 0
+            },
+            {
+               "speed": 40,
+               "description": "Disney Hotstar",
+               "price": 330000,
+               "promo": 0
+            },
+            {
+               "speed": 50,
+               "description": "Disney Hotstar",
+               "price": 360000,
+               "promo": 0
+            }
+         ]
+      },
+      {
+         "name": "Paket JITU 1 2P Internet + TV",
+         "packages": [
+            {
+               "speed": 30,
+               "description": "Disney Hotstar",
+               "price": 340000,
+               "promo": 0
+            },
+            {
+               "speed": 30,
+               "description": "Minipack Big Combo",
+               "price": 370000,
+               "promo": 0
+            },
+            {
+               "speed": 30,
+               "description": "Minipack Big Combo + Disney Hotstar + Catchplay + WeTV + iflix + Vidio",
+               "price": 455000,
+               "promo": 0
+            },
+            {
+               "speed": 40,
+               "description": "Minipack Big Combo + Disney Hotstar + Catchplay + WeTV + iflix + Vidio",
+               "price": 485000,
+               "promo": 0
+            },
+            {
+               "speed": 50,
+               "description": "Minipack Big Combo + Disney Hotstar + Catchplay + WeTV + iflix + Vidio",
+               "price": 505000,
+               "promo": 0
+            }
+         ]
+      },
+      {
+         "name": "Paket JITU 1 3P Internet + Phone + TV",
+         "packages": [
+            {
+               "speed": 30,
+               "description": "Disney Hotstar",
+               "price": 360000,
+               "promo": 0
+            },
+            {
+               "speed": 30,
+               "description": "Minipack Big Combo",
+               "price": 390000,
+               "promo": 0
+            },
+            {
+               "speed": 30,
+               "description": "Minipack Big Combo + Disney Hotstar + Catchplay + WeTV + iflix + Vidio",
+               "price": 475000,
+               "promo": 0
+            },
+            {
+               "speed": 40,
+               "description": "Minipack Big Combo + Disney Hotstar + Catchplay + WeTV + iflix + Vidio",
+               "price": 495000,
+               "promo": 0
+            },
+            {
+               "speed": 50,
+               "description": "Minipack Big Combo + Disney Hotstar + Catchplay + WeTV + iflix + Vidio",
+               "price": 515000,
+               "promo": 0
+            }
+         ]
+      }
+   ]
+}
