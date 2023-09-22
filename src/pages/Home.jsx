@@ -12,18 +12,17 @@ export default function Home() {
    const [data, setData] = useState();
 
    const getData = async () => {
-      const res = await axios.get(`data.json`);
-      return res.data.data;
+      const res = await axios.get();
+      return res.data.data[0];
    };
 
    useEffect(() => {
       Promise.all([getData()])
          .then((res) => {
-            // console.log(data);
             setData(res);
          })
          .catch(() => {
-            setData(packages);
+            setData(packages.data);
          });
    }, []);
 
@@ -62,7 +61,7 @@ export default function Home() {
                Pilihan Paket Indihome
             </Typography>
             {data ? (
-               data.data.map((value, index) => (
+               data.map((value, index) => (
                   <Grid container spacing={3} key={index} mt={5}>
                      <Grid item xs={12}>
                         <Typography variant="h5" fontWeight="bold">
