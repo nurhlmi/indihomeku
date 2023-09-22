@@ -13,13 +13,13 @@ export default function Home() {
 
    const getData = async () => {
       const res = await axios.get();
-      return res.data.data[0];
+      return res.data.data;
    };
 
    useEffect(() => {
       Promise.all([getData()])
          .then((res) => {
-            setData(res);
+            setData(res[0]);
          })
          .catch(() => {
             setData(packages.data);
