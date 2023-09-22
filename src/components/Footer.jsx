@@ -27,9 +27,6 @@ export default function Footer() {
                      <Typography variant="h4" fontWeight="bold" color="#fff" mb={4}>
                         Disini tempatnya!
                      </Typography>
-                     <Typography variant="h4" fontWeight="bold" color="#fff" mb={4}>
-                        DISKON 77% SEKARANG!
-                     </Typography>
                      <Box
                         component={Link}
                         href={`https://wa.me/?phone=${phone}&text=${text}`}
