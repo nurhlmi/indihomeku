@@ -100,7 +100,7 @@ export default function PackageCard(props) {
                sx={{ mb: 2 }}
                startIcon={<WhatsApp />}
                component={Link}
-               href={`https://wa.me/?phone=${phone}&text=${text}`}
+               href={`https://api.whatsapp.com/send/?phone=${phone}&text=${text}&type=phone_number&app_absent=0`}
                target="_blank"
                rel="noreferrer"
                fullWidth

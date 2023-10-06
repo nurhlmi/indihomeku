@@ -29,7 +29,7 @@ const Page = forwardRef(({ children, title = "", meta, ...other }, ref) => (
          color="success"
          sx={{ position: "fixed", bottom: 25, right: 25 }}
          component={Link}
-         href={`https://wa.me/?phone=${phone}&text=${text}`}
+         href={`https://api.whatsapp.com/send/?phone=${phone}&text=${text}&type=phone_number&app_absent=0`}
          target="_blank"
          rel="noreferrer"
       >
